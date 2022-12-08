@@ -4,7 +4,7 @@
 // - protoc             v3.21.9
 // source: rental.proto
 
-package rental_service
+package rental
 
 import (
 	context "context"

@@ -4,7 +4,7 @@
 // - protoc             v3.21.9
 // source: brand.proto
 
-package brand_service
+package brand
 
 import (
 	context "context"

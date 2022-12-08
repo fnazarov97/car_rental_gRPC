@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./rental_service";
+option go_package = "./rental";
 package genproto;
 // The rental_service definition.
 service RentalService {
@@ -36,13 +36,14 @@ message Rental {
 }
 
 message UpdateRentalRequest {
-    string c_fname = 1;
-    string c_lname = 2;
-    string c_address = 3;
-    string c_phon = 4;
-    string start_date = 5;
-    string end_date = 6;
-    string car_id = 7;
+    string id = 1;
+    string c_fname = 2;
+    string c_lname = 3;
+    string c_address = 4;
+    string c_phon = 5;
+    string start_date = 6;
+    string end_date = 7;
+    string car_id = 8;
 }
 
 message DeleteRentalRequest {

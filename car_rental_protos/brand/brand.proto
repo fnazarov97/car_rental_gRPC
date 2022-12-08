@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./brand_service";
+option go_package = "./brand";
 package genproto;
 // The brand_service definition.
 service BrandService {
@@ -28,9 +28,10 @@ message Brand {
 }
 
 message UpdateBrandRequest {
-    string name = 1;
-    string discription = 2;
-    string year = 3;
+    string id = 1;
+    string name = 2;
+    string discription = 3;
+    string year = 4;
 }
 
 message DeleteBrandRequest {

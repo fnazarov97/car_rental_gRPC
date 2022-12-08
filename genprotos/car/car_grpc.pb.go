@@ -4,7 +4,7 @@
 // - protoc             v3.21.9
 // source: car.proto
 
-package car_service
+package car
 
 import (
 	context "context"
