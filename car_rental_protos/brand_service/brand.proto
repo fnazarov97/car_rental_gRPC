@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option go_package = "./brand_service";
+package genproto;
+// The brand_service definition.
+service BrandService {
+
+    rpc CreateBrand (CreateBrandRequest) returns (Brand) {}
+    rpc UpdateBrand (UpdateBrandRequest) returns (Brand) {}
+    rpc DeleteBrand (DeleteBrandRequest) returns (Brand) {}
+    rpc GetBrandByID (GetBrandByIDRequest) returns (Brand) {}
+    rpc GetBrandList (GetBrandListRequest) returns (GetBrandListResponse) {}
+}
+
+message CreateBrandRequest {
+    string name = 1;
+    string discription = 2;
+    string year = 3;
+}
+
+message Brand {
+    string brand_id = 1;
+    string name = 2;
+    string discription = 3;
+    string year = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message UpdateBrandRequest {
+    string name = 1;
+    string discription = 2;
+    string year = 3;
+}
+
+message DeleteBrandRequest {
+    string brand_id = 1;
+}
+
+message GetBrandByIDRequest {
+    string brand_id = 1;
+}
+
+message GetBrandListRequest {
+    int32 offset = 1;
+    int32 limit = 2;
+    string search = 3;
+}
+
+message GetBrandListResponse {
+    repeated Brand brands = 1;
+}

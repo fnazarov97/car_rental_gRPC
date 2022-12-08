@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+option go_package = "./rental_service";
+package genproto;
+// The rental_service definition.
+service RentalService {
+
+    rpc CreateRental (CreateRentalRequest) returns (Rental) {}
+    rpc UpdateRental (UpdateRentalRequest) returns (Rental) {}
+    rpc DeleteRental (DeleteRentalRequest) returns (Rental) {}
+    rpc GetRentalByID (GetRentalByIDRequest) returns (GetRentalByIDResponse) {}
+    rpc GetRentalList (GetRentalListRequest) returns (GetRentalListResponse) {}
+}
+
+message CreateRentalRequest {
+    string c_fname = 1;
+    string c_lname = 2;
+    string c_address = 3;
+    string c_phon = 4;
+    string start_date = 5;
+    string end_date = 6;
+    string car_id = 7;
+}
+
+message Rental {
+    string rental_id = 1;
+    string c_fname = 2;
+    string c_lname = 3;
+    string c_address = 4;
+    string c_phon = 5;
+    string start_date = 6;
+    string end_date = 7;
+    string car_id = 8;
+    string created_at = 9;
+    string updated_at = 10;
+}
+
+message UpdateRentalRequest {
+    string c_fname = 1;
+    string c_lname = 2;
+    string c_address = 3;
+    string c_phon = 4;
+    string start_date = 5;
+    string end_date = 6;
+    string car_id = 7;
+}
+
+message DeleteRentalRequest {
+    string rental_id = 1;
+}
+
+message GetRentalByIDRequest {
+    string rental_id = 1;
+}
+
+message GetRentalByIDResponse {
+    message Car {
+        string car_id = 1;
+        string model = 2;
+        string color = 3;
+        string year = 4;
+        string mileage = 5;
+        string brand_id = 6;
+        string created_at = 7;
+        string updated_at = 8;
+    }
+    string rental_id = 1;
+    string c_fname = 2;
+    string c_lname = 3;
+    string c_address = 4;
+    string c_phon = 5;
+    string start_date = 6;
+    string end_date = 7;
+    Car car = 8;
+    string created_at = 9;
+    string updated_at = 10;
+}
+
+message GetRentalListRequest {
+    int32 offset = 1;
+    int32 limit = 2;
+    string search = 3;
+}
+
+message GetRentalListResponse {
+    repeated Rental rentals = 1;
+}

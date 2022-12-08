@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option go_package = "./car_service";
+package genproto;
+// The car_service definition.
+service CarService {
+
+    rpc CreateCar (CreateCarRequest) returns (Car) {}
+    rpc UpdateCar (UpdateCarRequest) returns (Car) {}
+    rpc DeleteCar (DeleteCarRequest) returns (Car) {}
+    rpc GetCarByID (GetCarByIDRequest) returns (GetCarByIDResponse) {}
+    rpc GetCarList (GetCarListRequest) returns (GetCarListResponse) {}
+}
+
+message CreateCarRequest {
+    string model = 1;
+    string color = 2;
+    string year = 3;
+    string mileage = 4;
+    string brand_id = 5;
+}
+
+message Car {
+    string car_id = 1;
+    string model = 2;
+    string color = 3;
+    string year = 4;
+    string mileage = 5;
+    string brand_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message UpdateCarRequest {
+    string model = 1;
+    string color = 2;
+    string year = 3;
+    string mileage = 4;
+    string brand_id = 5;
+}
+
+message DeleteCarRequest {
+    string id = 1;
+}
+
+message GetCarByIDRequest {
+    string id = 1;
+}
+
+message GetCarByIDResponse {
+    message Brand {
+        string brand_id = 1;
+        string name = 2;
+        string discription = 3;
+        string created_at = 4;
+        string updated_at = 5;
+    }
+    string car_id = 1;
+    string model = 2;
+    string color = 3;
+    string year = 4;
+    string mileage = 5;
+    Brand brand = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message GetCarListRequest {
+    int32 offset = 1;
+    int32 limit = 2;
+    string search = 3;
+}
+
+message GetCarListResponse {
+    repeated Car Cars = 1;
+}
