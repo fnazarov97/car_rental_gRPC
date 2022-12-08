@@ -1,0 +1,3 @@
+[submodule "car_rental_service"]
+	path = car_rental_service
+	url = git@github.com:fnazarov97/car_rental_service.git
