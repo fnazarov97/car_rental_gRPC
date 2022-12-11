@@ -4,3 +4,9 @@
 [submodule "car_rental_api_gateway"]
 	path = car_rental_api_gateway
 	url = git@github.com:fnazarov97/car_rental_api_gateway.git
+[submodule "car_rental_auth_service"]
+	path = car_rental_auth_service
+	url = git@github.com:fnazarov97/car_rental_auth_service.git
+[submodule "rental_service"]
+	path = rental_service
+	url = git@github.com:fnazarov97/rental_service.git
