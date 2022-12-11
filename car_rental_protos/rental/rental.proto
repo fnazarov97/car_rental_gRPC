@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option go_package = "./rental";
 package genproto;
+
 // The rental_service definition.
 service RentalService {
 
@@ -13,37 +14,31 @@ service RentalService {
 }
 
 message CreateRentalRequest {
-    string c_fname = 1;
-    string c_lname = 2;
-    string c_address = 3;
-    string c_phon = 4;
-    string start_date = 5;
-    string end_date = 6;
-    string car_id = 7;
+    string car_id = 1;
+    string customer_id = 2; 
+    string start_date = 3;
+    string end_date = 4;
+    string payment = 5;
 }
 
 message Rental {
     string rental_id = 1;
-    string c_fname = 2;
-    string c_lname = 3;
-    string c_address = 4;
-    string c_phon = 5;
-    string start_date = 6;
-    string end_date = 7;
-    string car_id = 8;
-    string created_at = 9;
-    string updated_at = 10;
+    string car_id = 2;
+    string customer_id = 3; 
+    string start_date = 4;
+    string end_date = 5;
+    string payment = 6;
+    string created_at = 7;
+    string updated_at = 8;
 }
 
 message UpdateRentalRequest {
-    string id = 1;
-    string c_fname = 2;
-    string c_lname = 3;
-    string c_address = 4;
-    string c_phon = 5;
-    string start_date = 6;
-    string end_date = 7;
-    string car_id = 8;
+    string rental_id = 1;
+    string car_id = 2;
+    string customer_id = 3; 
+    string start_date = 4;
+    string end_date = 5;
+    string payment = 6;
 }
 
 message DeleteRentalRequest {
@@ -65,14 +60,26 @@ message GetRentalByIDResponse {
         string created_at = 7;
         string updated_at = 8;
     }
+    message User {
+        string id = 1;
+        string fname = 2;
+        string lname = 3;
+        string username = 4;
+        string password = 5;
+        string user_type = 6;
+        string address = 7;
+        string phone = 8;
+        string created_at = 9;
+        string updated_at = 10;
+    }
     string rental_id = 1;
-    string c_fname = 2;
-    string c_lname = 3;
-    string c_address = 4;
-    string c_phon = 5;
+    string car_id = 2;
+    Car car = 3;
+    string customer_id = 4;
+    User customer = 5; 
     string start_date = 6;
     string end_date = 7;
-    Car car = 8;
+    string payment = 8;
     string created_at = 9;
     string updated_at = 10;
 }
